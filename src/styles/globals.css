@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .main-back-dark {
+    @apply dark:bg-[#1E1E1E] bg-[#ffffff];
+  }
+
+  .border-tool {
+    @apply dark:border-[#4BC734] border-[#727272];
+  }
+
+  .main-hover-dark {
+    @apply dark:text-[#4BC734] text-[#1BA807];
+  }
+
+  .main-green-btn {
+    @apply text-center bg-[#4BC734] sm:text-2xl text-xl font-bold py-4 sm:px-8 px-2 rounded-3xl cursor-pointer transition ease-in duration-300 hover:scale-110;
+  }
+
+  .tool-box-title {
+    @apply font-medium text-2xl leading-6 dark:text-[#4BC734] text-[#1BA807];
+  }
+
+  .tool-box-description {
+    @apply text-[15px] dark:text-[#ffffffb3] text-[#00000070];
+  }
+
+  .tool-input-label {
+    @apply block text-base dark:text-slate-300 text-[#0000004d] font-semibold;
+  }
+
+  .tool-input {
+    @apply block w-full rounded-md py-4 px-2 dark:bg-[#1A3015] bg-[#ffffff] text-sm border border-[#4BC734] focus:outline-none;
+  }
+}
+
+.loading-spinner {
+  width: 76px;
+  height: 76px;
+  border: 3px solid #6F6E6E;
+  border-top: 3px solid #e7e5e5;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
